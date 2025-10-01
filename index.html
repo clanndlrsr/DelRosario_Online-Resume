@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Clann Daniel Del Rosario - Resume</title>
+        <style>
+            * {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+                font-family: 'Segoe UI', 'Arial', sans-serif;
+            }
+
+            body {
+                line-height: 1.7;
+                color: #2d3436;
+                margin: 0;
+                padding: 0;
+                background-color: #e4e4e4;
+                font-size: 16px;
+            }
+
+            p {
+                font-size: 1.1em;
+                line-height: 1.8;
+            }
+
+            .sidenav {
+                height: 100%;
+                width: 200px;
+                position: fixed;
+                z-index: 1;
+                top: 0;
+                left: 0;
+                background-color: white;
+                padding-top: 20px;
+                box-shadow: 2px 0 10px rgba(0,0,0,0.1);
+            }
+
+            .sidenav a {
+                padding: 10px 15px;
+                text-decoration: none;
+                font-size: 0.9em;
+                color: #2d3436;
+                display: block;
+                transition: all 0.3s ease;
+            }
+
+            .sidenav a:hover {
+                background-color: #e8f0fe;
+                color: #1a73e8;
+            }
+
+            .sidenav a.active {
+                border-left: 3px solid #1a73e8;
+                background-color: #e8f0fe;
+                color: #1a73e8;
+            }
+
+            .container {
+                margin: 0 auto;
+                margin-left: calc(50% - 600px);
+                width: 1200px;
+                padding: 50px 70px;
+                background-color: white;
+                box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+                border-radius: 12px;
+                transition: transform 0.3s ease;
+            }
+
+            .container:hover {
+                transform: translateY(-5px);
+            }
+
+            header {
+                text-align: left;
+                margin-bottom: 50px;
+                padding-bottom: 25px;
+                border-bottom: 3px solid #e8f0fe;
+                display: flex;
+                justify-content: space-between;
+                align-items: flex-start;
+            }
+
+            .header-content {
+                flex: 1;
+                padding-right: 30px;
+            }
+
+            .profile-photo {
+                width: 200px;
+                height: 200px;
+                border-radius: 50%;
+                object-fit: cover;
+                border: 3px solid #1a73e8;
+            }
+
+            h1 {
+                color: #1a73e8;
+                font-size: 3.2em;
+                margin-bottom: 20px;
+                letter-spacing: -0.5px;
+                text-align: left;
+            }
+
+            .contact-info {
+                margin-bottom: 25px;
+                color: #5f6368;
+                line-height: 1.8;
+                text-align: left;
+            }
+
+            .contact-info p a {
+                color: #1a73e8;
+                text-decoration: none;
+                transition: color 0.2s ease;
+            }
+
+            .contact-info p a:hover {
+                color: #14418a;
+            }
+
+            .section {
+                margin-bottom: 40px;
+                padding: 0 10px;
+            }
+
+            h2 {
+                color: #1a73e8;
+                border-bottom: 2px solid #e8f0fe;
+                margin-bottom: 20px;
+                padding-bottom: 8px;
+                font-size: 1.5em;
+                position: relative;
+            }
+
+            h2::after {
+                content: '';
+                position: absolute;
+                bottom: -2px;
+                left: 0;
+                width: 50px;
+                height: 2px;
+                background-color: #1a73e8;
+            }
+
+            .work-item, .education-item {
+                margin-bottom: 25px;
+                padding: 15px;
+                border-radius: 8px;
+                transition: background-color 0.2s ease;
+            }
+
+            .work-item:hover, .education-item:hover {
+                background-color: #dadada;
+            }
+
+            .work-title {
+                font-weight: 600;
+                color: #202124;
+                font-size: 1.1em;
+                margin-bottom: 5px;
+            }
+
+            .work-company {
+                font-style: italic;
+                color: #5f6368;
+                margin-bottom: 8px;
+            }
+
+            .work-date {
+                color: #1a73e8;
+                font-size: 0.9em;
+                margin-bottom: 10px;
+            }
+
+            ul {
+                list-style: none;
+                padding-left: 0;
+                margin-top: 12px;
+            }
+
+            ul li {
+                margin-bottom: 12px;
+                color: #3c4043;
+                padding-left: 20px;
+                position: relative;
+            }
+            
+            .skills-list {
+                display: grid;
+                grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+                gap: 15px;
+                margin-bottom: 20px;
+            }
+
+            .skills-list ul li {
+                padding: 5px 10px;
+                background-color: #e8f0fe;
+                border-radius: 4px;
+                margin-bottom: 10px;
+                font-size: 0.95em;
+                transition: transform 0.2s ease;
+            }
+
+            .skills-list ul li:hover {
+                transform: translateX(5px);
+                background-color: #d2e3fc;
+            }
+
+            .skill-category {
+                margin-bottom: 20px;
+            }
+
+            .skill-category h3 {
+                color: #1a73e8;
+                margin-bottom: 12px;
+                font-size: 1.1em;
+            }
+
+            .awards-list li {
+                margin-bottom: 12px;
+                padding: 8px 12px;
+                background-color: #f8f9fa;
+                border-radius: 6px;
+                border-left: 3px solid #1a73e8;
+            }
+
+            .footer {
+                position: fixed;
+                bottom: 0;
+                left: 0;
+                width: 100%;
+                background-color: white;
+                padding: 15px;
+                text-align: center;
+                box-shadow: 0 -2px 10px rgba(0,0,0,0.1);
+                color: #5f6368;
+                font-size: 0.9em;
+                z-index: 1000;
+            }
+
+            .footer a {
+                color: #1a73e8;
+                text-decoration: none;
+                margin: 0 10px;
+                transition: color 0.2s ease;
+            }
+
+            .footer a:hover {
+                color: #174ea6;
+            }
+        </style>
+    </head>
+    <body>
+        <nav class="sidenav">
+            <a href="index.html"> Home </a>
+            <a href="#about-me"> About Me </a>
+            <a href="#experience"> Work Experience </a>
+            <a href="#education"> Education </a>
+            <a href="#skills"> Technical Skills </a>
+            <a href="#projects"> Projects </a>
+            <a href="#certifications"> Certifications </a>
+        </nav>
+        <div class="container">
+            <header id="home">
+                <div class="header-content">
+                    <h1> Clann Daniel Roque Del Rosario </h1>
+                    <div class="contact-info">
+                        <p> Malagasang 2B, Imus Cavite • +63 912-345-6789 </p>
+                        <p> clanndanieldelrosario@gmail.com • github.com/clanndlrsr </p>
+                    </div>
+                </div>
+                <img src="clann.jpg" alt="Profile Photo" class="profile-photo">
+            </header>
+
+            <section id="about-me" class="section">
+                <h2> About Me </h2>
+                <p> Curious. Inventive. Solutions-driven. I’m a full-stack developer turned 
+                    cybersecurity specialist with 15+ years of hands-on experience designing 
+                    secure, scalable digital products. My journey started in high school coding 
+                    small websites — now I help companies, schools, and startups build resilient, 
+                    user-centered technologies that solve real-world problems. I specialize in 
+                    bringing ideas to life with code, cloud, and collaboration. </p>
+            </section>
+
+            <section id="experience" class="section">
+                <h2> Work Experience </h2>
+                <div class="work-item">
+                    <div class="work-title"> Web Developer </div>
+                    <div class="work-company"> LSPU - ICT Center </div>
+                    <div class="work-date"> July 2023 - Present </div>
+                    <ul>
+                        <li> Develop and maintain web applications using HTML, CSS, JavaScript, and PHP </li>
+                        <li> Implement responsive design principles and ensure cross-browser compatibility </li>
+                        <li> Collaborate with team members to create efficient and scalable solutions </li>
+                    </ul>
+                </div>
+                <div class="work-item">
+                    <div class="work-title"> Capstone Project Developer </div>
+                    <div class="work-company"> Laguna State Polytechnic University - San Pablo Campus </div>
+                    <div class="work-date"> February - March 2023 </div>
+                    <ul>
+                        <li> Led the development of a Special Program Monitoring and Issuance System </li>
+                        <li> Implemented front-end development using HTML5, CSS3, and JavaScript </li>
+                        <li> Developed back-end functionality using PHP with CodeIgniter framework </li>
+                        <li> Successfully deployed and maintained the system for university use </li>
+                    </ul>
+                </div>
+            </section>
+
+            <section id="education" class="section">
+                <h2> Education </h2>
+                <div class="education-item">
+                    <div class="work-title"> Bachelor of Science in Information Technology </div>
+                    <div class="work-company"> Laguna State Polytechnic University - San Pablo Campus </div>
+                    <div class="work-date"> 2019 - 2023 </div>
+                    <ul>
+                        <li> Academic Scholar </li>
+                        <li> Dean's Lister </li>
+                    </ul>
+                </div>
+            </section>
+
+            <section id="skills" class="section">
+                <h2> Technical Skills </h2>
+                <div class="skills-list">
+                    <ul>
+                        <li> HTML5 & CSS3 </li>
+                        <li> JavaScript </li>
+                        <li> PHP </li>
+                        <li> MySQL </li>
+                        <li> CodeIgniter Framework </li>
+                        <li> Bootstrap Framework </li>
+                        <li> Git & GitHub </li>
+                        <li> Visual Studio Code </li>
+                        <li> Microsoft Office Suite </li>
+                    </ul>
+                </div>
+            </section>
+
+            <section id="projects" class="section">
+                <h2> Projects </h2>
+                <div class="work-item">
+                    <div class="work-title"> Special Program Monitoring and Issuance System </div>
+                    <ul>
+                        <li> Led the development of a web-based system for LSPU-SPC </li>
+                        <li> Implemented user authentication and authorization </li>
+                        <li> Created responsive design using Bootstrap framework </li>
+                    </ul>
+                </div>
+            </section>
+
+            <section id="certifications" class="section">
+                <h2> Certifications </h2>
+                <ul class="awards-list">
+                    <li> Oracle Cloud Infrastructure 2023 AI Certified Foundations Associate </li>
+                    <li> Oracle Cloud Data Management 2023 Certified Foundations Associate </li>
+                    <li> Oracle Cloud Infrastructure 2023 Certified Foundations Associate </li>
+                    <li> Introduction to Backend Development (Meta) </li>
+                    <li> IBM Full Stack Software Developer Specialization </li>
+                    <li> Python for Data Science, AI & Development (IBM) </li>
+                    <li> Introduction to Web Development with HTML, CSS, JavaScript (IBM) </li>
+                </ul>
+            </section>
+        </div>
+        <footer class="footer">
+            <span> © 2025-2026 Clann Daniel Del Rosario | Contents are for academic completion only, 
+                none of it is true aside for the header. </span>
+        </footer>
+        
+        <script>
+            window.onload = function() {
+                window.scrollTo(0, 0);
+            }
+            history.scrollRestoration = "manual";
+        </script>
+    </body>
+</html>
